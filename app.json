@@ -1,0 +1,8 @@
+{
+  "name": "TwilioPhoneExample",
+  "description": "Twilio Phone Example",
+  "repository": "https://github.com/mobilebiz/TwilioPhoneExample",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static", "Twilio"],
+  "image": "heroku/nodejs"
+}

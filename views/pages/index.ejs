@@ -1,0 +1,82 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/stylesheets/onsenui.css">
+<link rel="stylesheet" href="/stylesheets/onsen-css-components.css">
+<link rel="stylesheet" href="/stylesheets/user.css">
+<script src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
+<script src="/javascripts/angular/angular.js"></script>
+<script src="/javascripts/OnsenUI/onsenui.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascripts/user.js"></script>
+<body>
+  <ons-navigator var="myNavigator">
+    <ons-page>
+      <ons-toolbar>
+        <div class="center"><%=title%></div>
+      </ons-toolbar>
+      <div style="text-align: center">
+        <br>クライアント名（半角英数字）を入力して、ログインボタンを押してください。<br><br>
+          <ons-row align="top">
+            <ons-col size="10%"></ons-col>
+            <ons-col size="40%" align="right">クライアント名:&nbsp;</ons-col>
+            <ons-col align="left"><input class="text-input" id="client" style="width: 180px" required></ons-col>
+          </ons-row>
+          <ons-row>
+            <ons-col size="33%"></ons-col>
+            <ons-col size="33%" align="center"><br>
+              <ons-button var="btn_login" modifier="nomal" onclick="btn_login_click();">
+                ログイン
+              </ons-button>
+            </ons-col>
+          </ons-row>
+      </div>
+    </ons-page>
+  </ons-navigator>
+  <ons-template id="main.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="center"><span id="clientName"></span></div>
+      </ons-toolbar>
+      <div style="text-align: center">
+        <br>相手先の電話番号かクライアント名を入力して、発信ボタンを押してください。<br><br>
+          <ons-row align="top">
+            <ons-col size="10%"></ons-col>
+            <ons-col size="40%" align="right">電話番号 or クライアント名:&nbsp;</ons-col>
+            <ons-col align="left"><input class="text-input" id="callTo" style="width: 180px" required></ons-col>
+          </ons-row>
+          <ons-row>
+            <ons-col size="20%"></ons-col>
+            <ons-col size="60%" align="center" style="padding-top: 20px">
+              <ons-button id="btn_0" modifier="outline" onclick="btn_tenkey_click('0');">０</ons-button>
+              <ons-button id="btn_1" modifier="outline" onclick="btn_tenkey_click('1');">１</ons-button>
+              <ons-button id="btn_2" modifier="outline" onclick="btn_tenkey_click('2');">２</ons-button>
+              <ons-button id="btn_3" modifier="outline" onclick="btn_tenkey_click('3');">３</ons-button>
+              <ons-button id="btn_4" modifier="outline" onclick="btn_tenkey_click('4');">４</ons-button>
+              <ons-button id="btn_5" modifier="outline" onclick="btn_tenkey_click('5');">５</ons-button>
+              <ons-button id="btn_6" modifier="outline" onclick="btn_tenkey_click('6');">６</ons-button>
+              <ons-button id="btn_7" modifier="outline" onclick="btn_tenkey_click('7');">７</ons-button>
+              <ons-button id="btn_8" modifier="outline" onclick="btn_tenkey_click('8');">８</ons-button>
+              <ons-button id="btn_9" modifier="outline" onclick="btn_tenkey_click('9');">９</ons-button>
+              <ons-button id="btn_star" modifier="outline" onclick="btn_tenkey_click('*');">＊</ons-button>
+              <ons-button id="btn_pound" modifier="outline" onclick="btn_tenkey_click('#');">＃</ons-button>
+            </ons-col>
+          </ons-row>
+          <ons-row>
+            <ons-col size="33%"></ons-col>
+            <ons-col size="33%" align="center"><br>
+              <ons-button id="btn_connect" var="btn_connect" modifier="nomal" onclick="btn_connect_click();">
+                発信
+              </ons-button>
+              <ons-button var="btn_disconnect" modifier="nomal" onclick="btn_disconnect_click();">
+                切断
+              </ons-button>
+            </ons-col>
+          </ons-row>
+          <ons-row>
+            <ons-col align="center"><br><span style="color: red" id="message"></span></ons-col>
+          </ons-row>
+      </div>
+    </ons-page>
+  </ons-template>
+</body>

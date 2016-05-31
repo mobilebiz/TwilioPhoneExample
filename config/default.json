@@ -1,0 +1,13 @@
+{
+  "hostname": "https://www.hoge.com",
+  "twilio": {
+    "Server": "www.hoge.com",
+    "SID": "",
+    "Token": "",
+    "From": "+81"
+  },
+  "basicAuth": {
+    "user": "test",
+    "pass": "password"
+  }
+}
